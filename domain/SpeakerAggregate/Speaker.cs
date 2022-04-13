@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using domain.SessionAggregate;
 
-namespace domain;
+namespace domain.SpeakerAggregate;
 
 public class Speaker
 {

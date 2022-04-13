@@ -1,5 +1,6 @@
 using Xunit;
 using domain;
+using domain.SpeakerAggregate;
 using repository;
 using webapp;
 using Microsoft.EntityFrameworkCore;

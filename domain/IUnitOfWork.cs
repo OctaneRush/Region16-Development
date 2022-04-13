@@ -1,3 +1,7 @@
+using domain.SpeakerAggregate;
+using domain.SessionAggregate;
+using domain.AttendeeAggregate;
+
 namespace domain;
 
 public interface IUnitOfWork : IDisposable

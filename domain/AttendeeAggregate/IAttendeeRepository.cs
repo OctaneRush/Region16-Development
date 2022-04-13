@@ -1,4 +1,4 @@
-namespace domain;
+namespace domain.AttendeeAggregate;
 
 public interface IAttendeeRepository : IGenericRepository<Attendee>
 {

@@ -1,5 +1,6 @@
 using Xunit;
 using domain;
+using domain.SessionAggregate;
 using Xunit.Abstractions;
 
 namespace tests.SessionTests;

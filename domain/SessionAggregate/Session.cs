@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using domain.SpeakerAggregate;
+using domain.AttendeeAggregate;
 
-namespace domain;
+namespace domain.SessionAggregate;
 
 public class Session
 {

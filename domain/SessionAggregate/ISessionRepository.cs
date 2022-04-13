@@ -1,4 +1,4 @@
-namespace domain;
+namespace domain.SessionAggregate;
 
 public interface ISessionRepository : IGenericRepository<Session>
 {

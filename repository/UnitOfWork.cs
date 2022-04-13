@@ -1,4 +1,7 @@
 using domain;
+using domain.SpeakerAggregate;
+using domain.SessionAggregate;
+using domain.AttendeeAggregate;
 using webapp;
 
 namespace repository

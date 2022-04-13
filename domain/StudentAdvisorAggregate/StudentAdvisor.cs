@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace domain;
+namespace domain.StudentAdvisorAggregate;
 
 public class StudentAdvisor
 {
