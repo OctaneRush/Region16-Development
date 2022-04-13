@@ -44,5 +44,7 @@ public class test3
         //make a new mock session
         //make a new mock speaker
         //get speakerid???
+
+        //I think the ISpeakerHelper is important here for a SpeakerID test
     }
 }
