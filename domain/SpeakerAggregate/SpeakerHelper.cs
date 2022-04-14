@@ -1,6 +1,3 @@
-namespace domain.SpeakerAggregate;
+using System;
 
-public class SpeakerHelper
-{
-    
-}
+namespace domain.SpeakerAggregate;
