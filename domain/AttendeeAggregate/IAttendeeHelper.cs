@@ -14,7 +14,7 @@ public interface IAttendeeHelper
     // public string ValidateEthnicity(string ethnicity);
 }
 
-    public class MySpeakerHelper : IAttendeeHelper
+    public class MyAttendeeHelper
     {
         public string GetFirstName(string fname)
     {
@@ -46,8 +46,9 @@ public interface IAttendeeHelper
     {
         Attendee attendee = new Attendee()
         {
-            FirstName = ValidateFirstName(fname),
-            LastName = ValidateLastName(lname)
+            FirstName = GetFirstName(fname),
+            LastName = GetLastName(lname),
+            EmailAddress = GetEmailAddress(email)
         };
     }
 }
