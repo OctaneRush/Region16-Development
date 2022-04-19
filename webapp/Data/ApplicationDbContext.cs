@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using webapp.Models;
+using domain.SpeakerAggregate;
+using domain.AttendeeAggregate;
+using domain.SessionAggregate;
 
 namespace webapp;
 
@@ -11,7 +13,7 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
 
-    public DbSet<Speaker> Speakers {get; set;}
-    public DbSet<Attendee> Attendees {get; set;}
-    public DbSet<Session> Sessions {get; set;}
+    public DbSet<Speaker>? Speakers {get; set;}
+    public DbSet<Attendee>? Attendees {get; set;}
+    public DbSet<Session>? Sessions {get; set;}
 }
