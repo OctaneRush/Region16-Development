@@ -1,18 +1,9 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace domain.AttendeeAggregate;
-
-public interface IAttendeeHelper
-{
-    public string ValidateFirstName(string fname);
-    public string ValidateLastName(string lname);
-    // public string ValidateMailAddress(string maddress);
-    // public string ValidatePrimaryPhoneNumber(string primaryphone);
-    public string ValidateEmailAddress(string email);
-    // public string ValidateGrade(string grade);
-    // public string ValidateGender(string gender);
-    // public string ValidateEthnicity(string ethnicity);
-}
 
     public class MyAttendeeHelper
     {
@@ -41,16 +32,4 @@ public interface IAttendeeHelper
         }
         return email;
     }
-
-    public Attendee CreateAttendee(string fname, string lname, string email)
-    {
-        Attendee attendee = new Attendee()
-        {
-            FirstName = GetFirstName(fname),
-            LastName = GetLastName(lname),
-            EmailAddress = GetEmailAddress(email)
-        };
-    }
 }
-
-
