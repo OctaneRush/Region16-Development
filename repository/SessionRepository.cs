@@ -1,42 +1,42 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using domain;
-using domain.SessionAggregate;
-using webapp;
+// using System.Collections.Generic;
+// using System.Linq;
+// using System.Threading.Tasks;
+// using Microsoft.EntityFrameworkCore;
+// using domain;
+// using domain.SessionAggregate;
+// using webapp;
 
-namespace repository;
+// namespace repository;
 
-public class SessionRepository : GenericRepository<Session>, ISessionRepository
-{
-    public SessionRepository(ApplicationDbContext context)
-        : base(context)
-        {
-        }
+// public class SessionRepository : GenericRepository<Session>, ISessionRepository
+// {
+//     public SessionRepository(ApplicationDbContext context)
+//         : base(context)
+//         {
+//         }
 
-    public async Task<IEnumerable<Session>> GetSessions()
-    {
-        return await _context.Set<Session>().ToListAsync();
-    }
+//     public async Task<IEnumerable<Session>> GetSessions()
+//     {
+//         return await _context.Set<Session>().ToListAsync();
+//     }
 
-    public async Task<Session> GetSessionById(int id)
-    {
-        return await _context.Set<Session>().FindAsync(id);
-    }
+//     public async Task<Session> GetSessionById(int id)
+//     {
+//         return await _context.Set<Session>().FindAsync(id);
+//     }
 
-    public async Task AddSession(Session session)
-    {
-        await _context.Set<Session>().AddAsync(session);
-    }
+//     public async Task AddSession(Session session)
+//     {
+//         await _context.Set<Session>().AddAsync(session);
+//     }
 
-    public void DeleteSession(Session session)
-    {
-        _context.Set<Session>().Remove(session);
-    }
+//     public void DeleteSession(Session session)
+//     {
+//         _context.Set<Session>().Remove(session);
+//     }
 
-    public void UpdateSession(Session session)
-    {
-        _context.Set<Session>().Update(session);    
-    }
-}
+//     public void UpdateSession(Session session)
+//     {
+//         _context.Set<Session>().Update(session);    
+//     }
+// }

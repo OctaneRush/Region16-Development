@@ -2,7 +2,6 @@ using Xunit;
 using Xunit.Abstractions;
 using domain;
 using domain.SpeakerAggregate;
-using repository;
 using webapp;
 using Microsoft.EntityFrameworkCore;
 
