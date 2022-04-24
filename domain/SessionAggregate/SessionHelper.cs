@@ -1,6 +1,5 @@
 namespace domain.SessionAggregate;
 
-public class SessionHelper
-{
+public class SessionHelper {
     
 }

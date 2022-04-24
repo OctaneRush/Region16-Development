@@ -32,4 +32,45 @@ namespace domain.AttendeeAggregate;
         }
         return email;
     }
+
+    public string GetPrimaryPhoneNumber(string phone)
+    {
+        if(phone.Length == 10){
+            throw new ArgumentException();
+        }
+        return phone;
+    }
+
+    public string GetMailAddress(string address)
+    {
+        // TODO Validation
+        if(address.Length == 0){
+            throw new ArgumentException();
+        }
+        return address;
+    }
+
+    public string Grade(string grade)
+    {
+        if(grade.Length > 0){
+            return grade;
+        }
+        return grade;
+    }
+
+    public string Gender(string gender)
+    {
+        if(gender.Length == 0){
+            throw new ArgumentException();
+        }
+        return gender;
+    }
+
+    public string Ethnicity(string ethnicity)
+    {
+        if(ethnicity.Length == 0){
+            throw new ArgumentException();
+        }
+        return ethnicity;
+    }
 }
