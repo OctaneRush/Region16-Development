@@ -26,13 +26,16 @@ public class IAttendeeHelperTests
 
     }
 
-    []
-    public void TestAttendeeLastNameIsValid()
+    [Fact]
+    public void TestAttendeeLastNameIsvalid()
     {
         //Arrange
+        Attendee flattire = new Attendee();
 
         //Act
+        flattire.LastName = myAttendeeHelper.GetLastName("Dude");
 
         //Assert
+        Assert.Equal(flattire.LastName, "Barek");
     }
 }

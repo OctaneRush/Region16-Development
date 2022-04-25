@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-using System;
 
-namespace domain.SpeakerAggregate;
-=======
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -84,4 +81,3 @@ public class SpeakerHelper
         return true;
     }
 }
->>>>>>> 39874875da3ca9e65e6cc4048905cb3923e1af8f
