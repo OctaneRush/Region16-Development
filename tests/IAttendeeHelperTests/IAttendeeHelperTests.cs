@@ -24,4 +24,13 @@ public class IAttendeeHelperTests
         Assert.Equal(a.FirstName, "Dude");
 
     }
+
+    public void TestAttendeeLastNameIsValid()
+    {
+        //Arrange
+
+        //Act
+
+        //Assert
+    }
 }
