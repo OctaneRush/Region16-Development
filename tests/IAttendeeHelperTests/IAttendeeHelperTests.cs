@@ -14,6 +14,7 @@ public class IAttendeeHelperTests
     [Fact]
     public void TestAttendeeFirstNameIsValid()
     {
+
         //Arrange
         Attendee a = new Attendee();
         
@@ -25,6 +26,7 @@ public class IAttendeeHelperTests
 
     }
 
+    []
     public void TestAttendeeLastNameIsValid()
     {
         //Arrange
