@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace domain.AttendeeAggregate;
 
     public string GetPrimaryPhoneNumber(string phone)
     {
-        if(phone.Length == 10){
+        if(phone.Length < 10){
             throw new ArgumentException();
         }
         return phone;

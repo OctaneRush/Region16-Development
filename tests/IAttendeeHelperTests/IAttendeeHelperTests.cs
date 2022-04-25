@@ -38,4 +38,17 @@ public class IAttendeeHelperTests
         //Assert
         Assert.Equal(flattire.LastName, "Barek");
     }
+
+    [Fact]
+    public void PrimaryPhoneNumberIsValid()
+    {
+        Attendee a = new Attendee();
+
+        a.PrimaryPhoneNumber = myAttendeeHelper.GetPrimaryPhoneNumber("1111111111");
+
+        Assert.Throws<Exception>(() =>
+        {
+            var phone = ("1111111111", a.PrimaryPhoneNumber);
+        });
+    }
 }
