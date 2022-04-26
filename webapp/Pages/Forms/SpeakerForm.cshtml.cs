@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using domain.SpeakerAggregate;
-using domain.SessionAggregate;
 
 namespace webapp.Pages.Forms;
 
@@ -28,10 +27,10 @@ public class SpeakerFormModel : PageModel
         {
             return Page();
         }
-
+        
         _context.Speakers.Add(Speaker);
         await _context.SaveChangesAsync();
         
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Index");
     }
 }

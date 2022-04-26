@@ -2,77 +2,78 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using domain.SessionAggregate;
 
 namespace domain.SpeakerAggregate;
 
 public class SpeakerHelper
 {
-    public bool ValidateFirstName(string fname)
+    public bool ValidateFirstName(Speaker speaker)
     {
-        if (fname == null)
+        if (speaker.FirstName == null)
         {
             return false;
         }
         return true;
     }
 
-    public bool ValidateLastName(string lname)
+    public bool ValidateLastName(Speaker speaker)
     {
-        if (lname == null)
+        if (speaker.LastName == null)
         {
             return false;
         }
         return true;
     }
 
-    public bool ValidateMailAddress(string address)
+    public bool ValidateMailAddress(Speaker speaker)
     {
-        if (address == null)
+        if (speaker.MailAddress == null)
         {
             return false;
         }
         return true;
     }
 
-    public bool ValidatePrimaryPhoneNumber(string phone)
+    public bool ValidatePrimaryPhoneNumber(Speaker speaker)
     {
-        if (phone.Length != 10)
+        if (speaker.PrimaryPhoneNumber.Length != 10)
         {
             return false;
         }
         return true;
     }
 
-    public bool ValidateEmailAddress(string email)
+    public bool ValidateEmailAddress(Speaker speaker)
     {
-        if (email.Contains("@"))
+        if (speaker.EmailAddress.Contains("@"))
         {
             return true;
         }
         return false;
     }
 
-    public bool ValidateJobTitle(string title)
+    public bool ValidateJobTitle(Speaker speaker)
     {
-        if (title == null)
+        if (speaker.JobTitle == null)
         {
             return false;
         }
         return true;
     }
 
-    public bool ValidateSessionTitle(string sessionTitle)
+    public bool ValidateSessionTitle(Session session)
     {
-        if (sessionTitle == null)
+        if (session.SessionTitle == null)
         {
             return false;
         }
         return true;
     }
 
-    public bool ValidateSessionDescription(string sessionDescr)
+    public bool ValidateSessionDescription(Session session)
     {
-        if (sessionDescr == null)
+        if (session.SessionDescription == null)
         {
             return false;
         }

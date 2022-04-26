@@ -17,7 +17,7 @@ namespace webapp.repository;
             services.AddTransient<IAttendeeRepository, AttendeeRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-            //services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase(databaseName: "Weather"));            
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("DataSource=app.db;Cache=Shared"));            
             
 
             return services;
