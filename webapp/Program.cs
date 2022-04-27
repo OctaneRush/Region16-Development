@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ using domain.SpeakerAggregate;
 using domain.SessionAggregate;
 using domain.AttendeeAggregate;
 using domain;
+using webapp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +36,10 @@ builder.Services.AddControllers();
 // builder.Services.AddTransient<ISessionRepository, SessionRepository>();
 // builder.Services.AddTransient<IAttendeeRepository, AttendeeRepository>();
 // builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
 // Configure used from https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-6.0&tabs=netcore-cli
 builder.Services.Configure<IdentityOptions>(options =>

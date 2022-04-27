@@ -44,6 +44,7 @@ public class SpeakerRepositoryTests
                 var speaker = await repository.GetSpeakers();
 
                 Assert.Equal(1, speaker.Count());
+                context.Database.EnsureDeleted();
         }
     }
 
@@ -88,6 +89,7 @@ public class SpeakerRepositoryTests
                 var speaker = await repository.GetSpeakerById(1);
 
                 Assert.Equal(1, speaker.SpeakerId);
+                context.Database.EnsureDeleted();
         } 
     }
 
@@ -132,6 +134,7 @@ public class SpeakerRepositoryTests
                 var speaker = await repository.GetSpeakerByEmail("thisperson@gmail.com");
 
                 Assert.Equal("thisperson@gmail.com", speaker.EmailAddress);
+                context.Database.EnsureDeleted();
         }   
     }
 
@@ -163,6 +166,7 @@ public class SpeakerRepositoryTests
                 var speaker = await repository.GetSpeakers();
 
                 Assert.Equal(1, speaker.Count());
+                context.Database.EnsureDeleted();
         }    
     }
 
@@ -206,6 +210,7 @@ public class SpeakerRepositoryTests
             context.SaveChanges();
 
             Assert.Equal(1, context.Speakers.Count());
+            context.Database.EnsureDeleted();
         }
     }
 
@@ -247,6 +252,7 @@ public class SpeakerRepositoryTests
             context.Update(testSpeaker1);
 
             Assert.Equal("Jordan", testSpeaker1.LastName);
+            context.Database.EnsureDeleted();
         }
     }
 }

@@ -6,17 +6,18 @@
 		<UserSecretsId>aspnet-webapp-EA13B918-6C94-4B24-B778-659EB4A623D5</UserSecretsId>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true"/>
+		<None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.4"/>
-		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.4"/>
-		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.4"/>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.4"/>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4"/>
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.3"/>
+		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.4" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.4" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.3" />
+		<PackageReference Include="SendGrid" Version="9.27.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\domain\domain.csproj"/>
+		<ProjectReference Include="..\domain\domain.csproj" />
 	</ItemGroup>
 </Project>
