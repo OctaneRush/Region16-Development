@@ -1,3 +1,4 @@
+using System.Reflection;
 using Xunit;
 using Xunit.Abstractions;
 using domain;
@@ -50,5 +51,25 @@ public class IAttendeeHelperTests
         {
             var phone = ("1111111111", a.PrimaryPhoneNumber);
         });
+    }
+
+    [Fact]
+    public void EmailAddressIsValid()
+    {
+        Attendee a = new Attendee();
+
+        a.EmailAddress = myAttendeeHelper.GetEmailAddress("h@gmail.com");
+
+        Assert.Contains("@", a.EmailAddress);
+    }
+
+    [Fact]
+    public void MailAddressIsValid()
+    {
+        Attendee a = new Attendee();
+
+        a.MailAddress = myAttendeeHelper.GetMailAddress("200 Narrow St");
+
+        Assert.Contains("St", a.MailAddress);
     }
 }

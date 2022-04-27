@@ -51,18 +51,18 @@ namespace domain.AttendeeAggregate;
         return address;
     }
 
-    public string Grade(string grade)
+    public string GetGrade(string grade)
     {
-        if(grade.Length > 0){
+        if(grade.Length == 0){
             return grade;
         }
         return grade;
     }
 
-    public string Gender(string gender)
+    public string GetGender(string gender)
     {
         if(gender.Length == 0){
-            throw new ArgumentException();
+            return gender;
         }
         return gender;
     }
