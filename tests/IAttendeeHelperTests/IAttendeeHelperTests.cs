@@ -72,4 +72,14 @@ public class IAttendeeHelperTests
 
         Assert.Contains("St", a.MailAddress);
     }
+
+    [Fact]
+    public void GenderIsValid()
+    {
+        Attendee a = new Attendee();
+
+        a.Gender = myAttendeeHelper.GetGender("Female");
+
+        Assert.Equal(a.Gender, "Female");
+    }
 }

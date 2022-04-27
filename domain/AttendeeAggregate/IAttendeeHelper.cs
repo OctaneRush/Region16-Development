@@ -53,6 +53,7 @@ namespace domain.AttendeeAggregate;
 
     public string GetGrade(string grade)
     {
+        //Not all attendees have grade so grade optional
         if(grade.Length == 0){
             return grade;
         }
@@ -62,7 +63,7 @@ namespace domain.AttendeeAggregate;
     public string GetGender(string gender)
     {
         if(gender.Length == 0){
-            return gender;
+            throw new ArgumentException();
         }
         return gender;
     }
