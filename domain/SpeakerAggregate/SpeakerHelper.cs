@@ -15,6 +15,7 @@ public interface ISpeakerHelper
     bool ValidatePrimaryPhoneNumber(Speaker speaker);
     bool ValidateEmailAddress(Speaker speaker);
     bool ValidateJobTitle(Speaker speaker);
+    bool ValidateSpeaker(Speaker speaker);
 }
 public class SpeakerHelper : ISpeakerHelper
 {
@@ -88,5 +89,24 @@ public class SpeakerHelper : ISpeakerHelper
             return false;
         }
         return true;
+    }
+
+    public bool ValidateSpeaker(Speaker speaker)
+    {
+        var fname = ValidateFirstName(speaker);
+        var lname = ValidateLastName(speaker);
+        var address = ValidateMailAddress(speaker);
+        var phone = ValidatePrimaryPhoneNumber(speaker);
+        var email = ValidateEmailAddress(speaker);
+        var title = ValidateJobTitle(speaker);
+
+        if (fname && lname && address && phone && email && title == true)
+        {
+           return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

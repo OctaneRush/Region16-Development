@@ -125,4 +125,22 @@ public class SpeakerHelperTests
         Assert.True(IsValid);
 
     }
+
+    [Fact]
+    public void TestThatSpeakerIsValidIfAllOthersAreValid()
+    {
+        //Arrange
+        testSpeaker.FirstName = "Michael";
+        testSpeaker.LastName = "Scott";
+        testSpeaker.MailAddress = "1234 This Drive";
+        testSpeaker.PrimaryPhoneNumber = "1234567890";
+        testSpeaker.EmailAddress = "thatperson@gmail.com";
+        testSpeaker.JobTitle = "Manager";
+
+        //Act
+        bool IsValid = speakerHelper.ValidateSpeaker(testSpeaker);
+
+        //Assert
+        Assert.True(IsValid);
+    }
 }

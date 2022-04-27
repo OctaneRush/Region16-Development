@@ -7,7 +7,6 @@ namespace webapp.Pages.Forms;
 
 public class SpeakerFormModel : PageModel
 {
-    //private readonly webapp.ApplicationDbContext _context;
     private IUnitOfWork _unitOfWork;
 
     public SpeakerFormModel(IUnitOfWork unitOfWork)
@@ -29,22 +28,18 @@ public class SpeakerFormModel : PageModel
         {
             return Page();
         }
-        
-        var fname = _unitOfWork.Helper.ValidateFirstName(Speaker);
-        var lname = _unitOfWork.Helper.ValidateLastName(Speaker);
-        var address = _unitOfWork.Helper.ValidateMailAddress(Speaker);
-        var phone = _unitOfWork.Helper.ValidatePrimaryPhoneNumber(Speaker);
-        var email = _unitOfWork.Helper.ValidateEmailAddress(Speaker);
-        var title = _unitOfWork.Helper.ValidateJobTitle(Speaker);
 
-        if (fname && lname && address && phone && email && title == true)
+        var newSpeaker = _unitOfWork.Helper.ValidateSpeaker(Speaker);
+
+        if (newSpeaker == true)
         {
-            await _unitOfWork.Speakers.AddSpeaker(Speaker);
+            await _unitOfWork.Speakers.AddSpeaker(Speaker);           
             _unitOfWork.Complete();
+            return RedirectToPage("/Index");
         }
-        // _context.Speakers.Add(Speaker);
-        // await _context.SaveChangesAsync();
-        
-        return RedirectToPage("/Index");
+        else
+        {
+            return Page();
+        }
     }
 }

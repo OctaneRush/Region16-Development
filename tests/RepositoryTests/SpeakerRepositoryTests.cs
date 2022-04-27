@@ -14,7 +14,7 @@ namespace tests.SpeakerRepositoryTests;
 public class SpeakerRepositoryTests
 {
 
-//https://www.thecodebuzz.com/unit-test-mock-entity-framework-core-repository/
+//Testing format used from: https://www.thecodebuzz.com/unit-test-mock-entity-framework-core-repository/
     [Fact]
     public async Task TestCanGetAllSpeakersFromDatabase()
     {
