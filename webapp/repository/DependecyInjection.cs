@@ -12,12 +12,13 @@ namespace webapp.repository;
     {
         public static IServiceCollection AddRepository(this IServiceCollection services)
         {
+            services.AddTransient<ISpeakerHelper, SpeakerHelper>();
             services.AddTransient<ISpeakerRepository, SpeakerRepository>();
             services.AddTransient<ISessionRepository, SessionRepository>();
             services.AddTransient<IAttendeeRepository, AttendeeRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-            //services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase(databaseName: "Weather"));            
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("DataSource=app.db;Cache=Shared"));            
             
 
             return services;

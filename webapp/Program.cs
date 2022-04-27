@@ -1,7 +1,22 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using webapp;
+using webapp.repository;
+using domain.SpeakerAggregate;
+using domain.SessionAggregate;
+using domain.AttendeeAggregate;
+using domain;
 using webapp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,9 +27,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+builder.Services.AddRepository();
+builder.Services.AddControllers();
+// builder.Services.AddTransient<ISpeakerRepository, SpeakerRepository>();
+// builder.Services.AddTransient<ISessionRepository, SessionRepository>();
+// builder.Services.AddTransient<IAttendeeRepository, AttendeeRepository>();
+// builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 
 builder.Services.AddTransient<IEmailSender, EmailSender>();

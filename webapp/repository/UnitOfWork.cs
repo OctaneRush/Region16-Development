@@ -9,18 +9,21 @@ namespace webapp.repository;
     public class UnitOfWork :IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
+        public ISpeakerHelper Helper { get; }
         public ISpeakerRepository Speakers { get; }
 
         public ISessionRepository Sessions { get; }
         
         public IAttendeeRepository Attendees {get; }
 
-        public UnitOfWork(ApplicationDbContext applicationDbContext, 
+        public UnitOfWork(ApplicationDbContext applicationDbContext,
+                            ISpeakerHelper speakerHelper, 
                           ISpeakerRepository speakersRepository, 
                           ISessionRepository sessionsRepository,
                           IAttendeeRepository attendeesRepository)
         {
             this._context = applicationDbContext;
+            this.Helper = speakerHelper;
             this.Speakers = speakersRepository;
             this.Sessions = sessionsRepository;
             this.Attendees = attendeesRepository;

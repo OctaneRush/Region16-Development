@@ -1,17 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using domain.SpeakerAggregate;
-using domain.SessionAggregate;
+using domain;
 
 namespace webapp.Pages.Forms;
 
 public class SpeakerFormModel : PageModel
 {
-    private readonly webapp.ApplicationDbContext _context;
+    private IUnitOfWork _unitOfWork;
 
-    public SpeakerFormModel(webapp.ApplicationDbContext context)
+    public SpeakerFormModel(IUnitOfWork unitOfWork)
     {
-        _context = context;
+        _unitOfWork = unitOfWork;
     }
 
     [BindProperty]
@@ -29,9 +29,17 @@ public class SpeakerFormModel : PageModel
             return Page();
         }
 
-        _context.Speakers.Add(Speaker);
-        await _context.SaveChangesAsync();
-        
-        return RedirectToPage("./Index");
+        var newSpeaker = _unitOfWork.Helper.ValidateSpeaker(Speaker);
+
+        if (newSpeaker == true)
+        {
+            await _unitOfWork.Speakers.AddSpeaker(Speaker);           
+            _unitOfWork.Complete();
+            return RedirectToPage("/Index");
+        }
+        else
+        {
+            return Page();
+        }
     }
 }

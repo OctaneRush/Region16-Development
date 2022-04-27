@@ -6,12 +6,10 @@ namespace webapp.repository;
 
 public class SpeakerRepository : GenericRepository<Speaker>, ISpeakerRepository
 {
-    protected readonly ApplicationDbContext _context;
     public SpeakerRepository(ApplicationDbContext context)
-        : base(context)
-        {
-            _context = context;
-        }
+        :base(context)
+    {
+    }
 
     public async Task<IEnumerable<Speaker>> GetSpeakers()
     {
@@ -23,9 +21,15 @@ public class SpeakerRepository : GenericRepository<Speaker>, ISpeakerRepository
         return await _context.Set<Speaker>().FindAsync(id);
     }
 
+    public async Task<Speaker> GetSpeakerByEmail(string email)
+    {
+        return await _context.Set<Speaker>().Where(e => e.EmailAddress == email).SingleAsync();
+    }
+
     public async Task AddSpeaker(Speaker speaker)
     {
         await _context.Set<Speaker>().AddAsync(speaker);
+        await _context.SaveChangesAsync();
     }
 
     public void DeleteSpeaker(Speaker speaker)

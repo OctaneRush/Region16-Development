@@ -37,7 +37,7 @@ public class IAttendeeHelperTests
         flattire.LastName = myAttendeeHelper.GetLastName("Dude");
 
         //Assert
-        Assert.Equal(flattire.LastName, "Barek");
+        Assert.Equal(flattire.LastName, "Dude");
     }
 
     [Fact]
@@ -47,10 +47,12 @@ public class IAttendeeHelperTests
 
         a.PrimaryPhoneNumber = myAttendeeHelper.GetPrimaryPhoneNumber("1111111111");
 
-        Assert.Throws<Exception>(() =>
-        {
-            var phone = ("1111111111", a.PrimaryPhoneNumber);
-        });
+        // Assert.Throws<Exception>(() =>
+        // {
+        //     var phone = ("1111111111", a.PrimaryPhoneNumber);
+        // });
+
+        Assert.Equal(a.PrimaryPhoneNumber, "1111111111");
     }
 
     [Fact]
