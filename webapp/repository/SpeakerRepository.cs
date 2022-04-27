@@ -9,7 +9,6 @@ public class SpeakerRepository : GenericRepository<Speaker>, ISpeakerRepository
     public SpeakerRepository(ApplicationDbContext context)
         :base(context)
     {
-
     }
 
     public async Task<IEnumerable<Speaker>> GetSpeakers()
@@ -24,7 +23,7 @@ public class SpeakerRepository : GenericRepository<Speaker>, ISpeakerRepository
 
     public async Task<Speaker> GetSpeakerByEmail(string email)
     {
-        return await _context.Set<Speaker>().FindAsync(email);
+        return await _context.Set<Speaker>().Where(e => e.EmailAddress == email).SingleAsync();
     }
 
     public async Task AddSpeaker(Speaker speaker)

@@ -1,6 +1,21 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using webapp;
+using webapp.repository;
+using domain.SpeakerAggregate;
+using domain.SessionAggregate;
+using domain.AttendeeAggregate;
+using domain;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +28,12 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+builder.Services.AddRepository();
+builder.Services.AddControllers();
+// builder.Services.AddTransient<ISpeakerRepository, SpeakerRepository>();
+// builder.Services.AddTransient<ISessionRepository, SessionRepository>();
+// builder.Services.AddTransient<IAttendeeRepository, AttendeeRepository>();
+// builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 // Configure used from https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-6.0&tabs=netcore-cli
 builder.Services.Configure<IdentityOptions>(options =>

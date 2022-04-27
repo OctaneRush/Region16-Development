@@ -6,7 +6,17 @@ using domain.SessionAggregate;
 
 namespace domain.SpeakerAggregate;
 
-public class SpeakerHelper
+
+public interface ISpeakerHelper
+{
+    bool ValidateFirstName(Speaker speaker);
+    bool ValidateLastName(Speaker speaker);
+    bool ValidateMailAddress(Speaker speaker);
+    bool ValidatePrimaryPhoneNumber(Speaker speaker);
+    bool ValidateEmailAddress(Speaker speaker);
+    bool ValidateJobTitle(Speaker speaker);
+}
+public class SpeakerHelper : ISpeakerHelper
 {
     public bool ValidateFirstName(Speaker speaker)
     {
