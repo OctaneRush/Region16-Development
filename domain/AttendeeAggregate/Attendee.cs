@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc.Rendering;
  
 namespace domain.AttendeeAggregate;
 
