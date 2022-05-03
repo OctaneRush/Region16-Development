@@ -7,10 +7,12 @@ namespace webapp.Pages.Forms;
 
 public class SpeakerFormModel : PageModel
 {
+    private readonly webapp.ApplicationDbContext _context;
     private IUnitOfWork _unitOfWork;
 
-    public SpeakerFormModel(IUnitOfWork unitOfWork)
+    public SpeakerFormModel(webapp.ApplicationDbContext context, IUnitOfWork unitOfWork)
     {
+        _context = context;
         _unitOfWork = unitOfWork;
     }
 
@@ -19,6 +21,23 @@ public class SpeakerFormModel : PageModel
 
     public IActionResult OnGet()
     {
+        var currentUser = _context.Speakers.Where(u => u.EmailAddress == HttpContext.User.Identity.Name).FirstOrDefault();
+            
+        if (currentUser != null)
+        {
+            Speaker ??= new Speaker
+            {
+                FirstName = currentUser.FirstName,
+                LastName = currentUser.LastName,
+                MailAddress = currentUser.MailAddress,
+                PrimaryPhoneNumber = currentUser.PrimaryPhoneNumber,
+                EmailAddress = currentUser.EmailAddress,
+                JobTitle = currentUser.JobTitle
+            };
+            
+            return Page();
+        }
+
         return Page();
     }
 
