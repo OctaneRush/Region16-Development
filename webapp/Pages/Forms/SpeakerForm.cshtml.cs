@@ -54,7 +54,7 @@ public class SpeakerFormModel : PageModel
         {
             await _unitOfWork.Speakers.AddSpeaker(Speaker);           
             _unitOfWork.Complete();
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Forms/OtherSpeakerOptions");
         }
         else
         {
