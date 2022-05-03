@@ -1,6 +1,6 @@
-namespace webapp.Services;
+// namespace webapp.Services;
 
-public class AuthMessageSenderOptions
-{
-    public string? SendGridKey { get; set; }
-}
+// public class AuthMessageSenderOptions
+// {
+//     public string? SendGridKey { get; set; }
+// }
