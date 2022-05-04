@@ -115,7 +115,7 @@ namespace webapp.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    return LocalRedirect("/Forms/SpeakerForm");
                 }
                 if (result.RequiresTwoFactor)
                 {
