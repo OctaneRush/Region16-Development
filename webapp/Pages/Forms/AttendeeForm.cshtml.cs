@@ -31,6 +31,6 @@ public class AttendeeFormModel : PageModel
         _context.Attendees.Add(Attendee);
         await _context.SaveChangesAsync();
         
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Index");
     }
 }
