@@ -3,8 +3,15 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <h3>Please register or login to submit a event registration form.</h3>
+    @if (SignInManager.IsSignedIn(User))
+{
+    <h3>To sign up for an event, <a asp-page="/Forms/SpeakerForm">click here</a></h3>
+}
 </div>
